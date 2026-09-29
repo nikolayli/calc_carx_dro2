@@ -22,12 +22,14 @@ jobs:
           targets: wasm32-unknown-unknown
 
       - name: Install wasm-pack
-        uses: jetbrains/setup-wasm-pack@v1
-        with:
-          version: "latest"
+        run: |
+          curl -sSLo wasm-pack.tar.gz https://github.com
+          tar -xzf wasm-pack.tar.gz
+          mv wasm-pack-v0.13.1-x86_64-unknown-linux-musl/wasm-pack .
+          rm -rf wasm-pack.tar.gz wasm-pack-v0.13.1-x86_64-unknown-linux-musl
 
       - name: Build WebAssembly
-        run: wasm-pack build --target web
+        run: ./wasm-pack build --target web
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
