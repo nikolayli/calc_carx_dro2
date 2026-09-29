@@ -1,0 +1,56 @@
+<div class="result">
+    <h3>Результаты расчета подвески:</h3>
+
+    <p><strong>Передняя ось:</strong></p>
+    <p>Высота пружины: <span id="frontHeight" class="val">--</span> мм</p>
+    <p>Жесткость пружины: <span id="frontSpring" class="val">--</span> кг/мм</p>
+
+    <br />
+
+    <p><strong>Задняя ось:</strong></p>
+    <p>Высота пружины: <span id="rearHeight" class="val">--</span> мм</p>
+    <p>Жесткость пружины: <span id="rearSpring" class="val">--</span> кг/мм</p>
+</div>
+
+<script type="module">
+    import init, { calculate_setup } from "./pkg/calc_carx_dro2.js";
+
+    async function run() {
+        await init();
+
+        document.getElementById("calcBtn").addEventListener("click", () => {
+            const weight = parseFloat(document.getElementById("weight").value);
+            const bias = parseFloat(document.getElementById("bias").value);
+            const power = parseFloat(document.getElementById("power").value);
+            const width = parseFloat(document.getElementById("width").value);
+            const profile = parseFloat(
+                document.getElementById("profile").value,
+            );
+            const diameter = parseFloat(
+                document.getElementById("diameter").value,
+            );
+
+            // Вызов изолированного движка Rust
+            const result = calculate_setup(
+                weight,
+                bias,
+                power,
+                width,
+                profile,
+                diameter,
+            );
+
+            // Вывод данных в интерфейс в порядке меню игры
+            document.getElementById("frontHeight").innerText =
+                result.front_spring_height.toFixed(0);
+            document.getElementById("frontSpring").innerText =
+                result.front_spring_rate.toFixed(2);
+
+            document.getElementById("rearHeight").innerText =
+                result.rear_spring_height.toFixed(0);
+            document.getElementById("rearSpring").innerText =
+                result.rear_spring_rate.toFixed(2);
+        });
+    }
+    run();
+</script>
