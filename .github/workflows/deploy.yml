@@ -21,11 +21,8 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
-      - name: Install cargo-binstall
-        run: curl -L --proto '=https' --tlsv1.2 -sSf https://githubusercontent.com | sh
-
-      - name: Install wasm-pack via Cargo
-        run: cargo binstall --no-confirm wasm-pack
+      - name: Install wasm-pack
+        run: cargo install wasm-pack
 
       - name: Build WebAssembly
         run: wasm-pack build --target web
