@@ -21,15 +21,14 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
-      - name: Install wasm-pack
-        run: |
-          curl -sSLo wasm-pack.tar.gz https://github.com
-          tar -xzf wasm-pack.tar.gz
-          mv wasm-pack-v0.13.1-x86_64-unknown-linux-musl/wasm-pack .
-          rm -rf wasm-pack.tar.gz wasm-pack-v0.13.1-x86_64-unknown-linux-musl
+      - name: Install cargo-binstall
+        run: curl -L --proto '=https' --tlsv1.2 -sSf https://githubusercontent.com | sh
+
+      - name: Install wasm-pack via Cargo
+        run: cargo binstall --no-confirm wasm-pack
 
       - name: Build WebAssembly
-        run: ./wasm-pack build --target web
+        run: wasm-pack build --target web
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
