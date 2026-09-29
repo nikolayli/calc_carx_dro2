@@ -22,7 +22,9 @@ jobs:
           targets: wasm32-unknown-unknown
 
       - name: Install wasm-pack
-        run: curl https://github.io -sSf | sh
+        uses: jetbrains/setup-wasm-pack@v1
+        with:
+          version: "latest"
 
       - name: Build WebAssembly
         run: wasm-pack build --target web
