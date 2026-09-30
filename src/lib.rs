@@ -2,12 +2,12 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub struct CarInputs {
-    total_weight: f32,         // масса автомобиля(кг)
-    front_weight_pct: f32,     // развесовка(%)
-    power_hp: f32,             // мощность автомобиля(л.с)
-    tyre_width: f32,           // ширина покрышек(мм)
-    tyre_profile: f32,         // профиль шин(%)
-    wheel_diameter: f32,       // диаметр дисков(дюймы)
+    total_weight: f32,     // масса автомобиля(кг)
+    front_weight_pct: f32, // развесовка(%)
+    power_hp: f32,         // мощность автомобиля(л.с)
+    tyre_width: f32,       // ширина покрышек(мм)
+    tyre_profile: f32,     // профиль шин(%)
+    wheel_diameter: f32,   // диаметр дисков(дюймы)
 }
 
 #[wasm_bindgen]
@@ -19,16 +19,16 @@ pub struct AxisSetup {
     helper_spring_rate: f32,   // жесткость подпружинника (кг/мм)
     sway_bar: f32,             // стабилизатор (кг/мм)
 
-    bump: f32,                 // сжатие амортизаторов (Н*м/с)
-    rebound: f32,              // отбой амортизаторов (Н*м/с)
-    fast_bump: f32,            // быстрое сжатие амортизаторов (Н*м/с)
-    fast_rebound: f32,         // быстрый отбой амортизаторов (Н*м/с)
-    gas_pressure: f32,         // сопротивление газа (кг)
+    bump: f32,         // сжатие амортизаторов (Н*м/с)
+    rebound: f32,      // отбой амортизаторов (Н*м/с)
+    fast_bump: f32,    // быстрое сжатие амортизаторов (Н*м/с)
+    fast_rebound: f32, // быстрый отбой амортизаторов (Н*м/с)
+    gas_pressure: f32, // сопротивление газа (кг)
 
-    camber: f32,               // развал (градусы)
-    track_width: f32,          // ширина базы (мм)
-    toe: f32,                  // схождения (градусы)
-    spacer: f32,               // проставка (мм)
+    camber: f32,      // развал (градусы)
+    track_width: f32, // ширина базы (мм)
+    toe: f32,         // схождения (градусы)
+    spacer: f32,      // проставка (мм)
 }
 
 #[wasm_bindgen]
@@ -36,17 +36,17 @@ pub struct CarSetup {
     front: AxisSetup,
     rear: AxisSetup,
 
-    caster: f32,               // кастер (градусы)
-    steering_lock: f32,        // выворот (градусы)
-    kpi: f32,                  // поперечный наклон поворота колеса (градусы)
-    scrub_radius: f32,         // смещение оси колеса (мм)
-    ackerman_spacer: f32,      // смещение рулевой сошки (мм)
+    caster: f32,          // кастер (градусы)
+    steering_lock: f32,   // выворот (градусы)
+    kpi: f32,             // поперечный наклон поворота колеса (градусы)
+    scrub_radius: f32,    // смещение оси колеса (мм)
+    ackerman_spacer: f32, // смещение рулевой сошки (мм)
 
-    tyre_pressure: f32,        // давление колес (бар)
+    tyre_pressure: f32, // давление колес (бар)
 
-    brake_balance: f32,        // баланс тормозов перед (%)
-    brake_torque: f32,         // тормозное усилие (Н*м)
-    handbrake_torque: f32,     // тормозное усилие ручника (Н*м)
+    brake_balance: f32,    // баланс тормозов перед (%)
+    brake_torque: f32,     // тормозное усилие (Н*м)
+    handbrake_torque: f32, // тормозное усилие ручника (Н*м)
 }
 
 #[wasm_bindgen]
