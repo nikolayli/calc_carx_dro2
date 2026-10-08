@@ -49,25 +49,25 @@
         await init();
 
         document.getElementById("calcBtn").addEventListener("click", () => {
-            const weight = parseFloat(document.getElementById("weight").value);
-            const bias = parseFloat(document.getElementById("bias").value);
-            const power = parseFloat(document.getElementById("power").value);
-            const width = parseFloat(document.getElementById("width").value);
-            const profile = parseFloat(
+            const inputs = new CarInputs();
+            inputs.total_weight = parseFloat(
+                document.getElementById("weight").value,
+            );
+            inputs.front_weight_pct = parseFloat(
+                document.getElementById("bias").value,
+            );
+            inputs.power_hp = parseFloat(
+                document.getElementById("power").value,
+            );
+            inputs.tyre_width = parseFloat(
+                document.getElementById("width").value,
+            );
+            inputs.tyre_profile = parseFloat(
                 document.getElementById("profile").value,
             );
-            const diameter = parseFloat(
+            inputs.wheel_diameter = parseFloat(
                 document.getElementById("diameter").value,
             );
-
-            const inputs = new CarInputs();
-
-            inputs.total_weight = weight;
-            inputs.front_weight_pct = bias;
-            inputs.power_hp = power;
-            inputs.tyre_width = width;
-            inputs.tyre_profile = profile;
-            inputs.wheel_diameter = diameter;
 
             const result = calculate_setup(inputs);
 
@@ -78,7 +78,7 @@
                 result.rear_spring_rate.toFixed(2);
 
             inputs.free();
-            inputs.free();
+            result.free();
         });
     }
     run();
