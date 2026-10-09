@@ -24,7 +24,10 @@
             cargo
             wasm-pack
             python3
+            lld
           ];
+
+          CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER = "lld";
         };
       }
     );
