@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+
+    <body>
+        <div class="inputs">
+            <h3>Параметры автомобиля:</h3>
+            <p>
+                <label
+                    >Maccа автомобиля:
+                    <input type="number" id="weight" value="1500"
+                /></label>
+            </p>
+            <p>
+                <label
+                    >Развесовка: <input type="number" id="bias" value="51"
+                /></label>
+            </p>
+            <p>
+                <label
+                    >Мощность: <input type="number" id="power" value="300"
+                /></label>
+            </p>
+            <p>
+                <label
+                    >Ширина покрышек:
+                    <input type="number" id="width" value="265"
+                /></label>
+            </p>
+            <p>
+                <label
+                    >Профиль шин: <input type="number" id="profile" value="35"
+                /></label>
+            </p>
+            <p>
+                <label
+                    >Диаметр дисков:
+                    <input type="number" id="diameter" value="18"
+                /></label>
+            </p>
+
+            <button id="calcBtn">Рассчитать</button>
+        </div>
+
+        <div class="result">
+            <h3>Результаты расчета подвески:</h3>
+
+            <p><strong>Передняя ось:</strong></p>
+            <p>
+                Жесткость пружины:
+                <span id="frontSpring" class="val">--</span> кг/мм
+            </p>
+
+            <br />
+
+            <p><strong>Задняя ось:</strong></p>
+            <p>
+                Жесткость пружины:
+                <span id="rearSpring" class="val">--</span> кг/мм
+            </p>
+        </div>
+
+        <script type="module" src="./app.js"></script>
+    </body>
+</html>
