@@ -11,6 +11,21 @@ pub struct CarInputs {
 }
 
 #[wasm_bindgen]
+impl CarInputs {
+    #[wasm_bindgen(constructor)]
+    pub fn new() -> CarInputs {
+        CarInputs {
+            total_weight: 0.0,
+            front_weight_pct: 0.0,
+            power_hp: 0.0,
+            tyre_width: 0.0,
+            tyre_profile: 0.0,
+            wheel_diameter: 0.0,
+        }
+    }
+}
+
+#[wasm_bindgen]
 #[derive(Debug, Clone, Copy)]
 pub struct AxisSetup {
     pub spring_height: f32,        // высота пружин (мм)
